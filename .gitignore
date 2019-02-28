@@ -1,5 +1,5 @@
-# Ignores the generated binary from building
-webserver
+# Ignores the generated binary from building via go build
+go-webserver
 
 # Ignores for Visual Studio Code (from https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore)
 .vscode/*

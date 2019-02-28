@@ -1,7 +1,3 @@
-// Test it by running the following:
-// curl -X POST -H 'Content-Type: application/json' -d "{\"name\": \"justin\", \"age\": 34}" http://localhost/test
-// or
-// curl -X POST -H 'Content-Type: application/json' -d @jsonFile.json http://localhost/test
 package main
 
 import (
@@ -11,7 +7,7 @@ import (
 	"log"
 	"net/http"
 
-	usertypes "github.com/carlsoncoder/webserver/usertypes"
+	usertypes "github.com/carlsoncoder/go-webserver/usertypes"
 )
 
 func test(rw http.ResponseWriter, req *http.Request) {
@@ -21,18 +17,18 @@ func test(rw http.ResponseWriter, req *http.Request) {
 	}
 
 	log.Println(string(body))
-	var t usertypes.User
+	var user usertypes.User
 
-	err = json.Unmarshal(body, &t)
+	err = json.Unmarshal(body, &user)
 	if err != nil {
 		panic(err)
 	}
 
-	log.Println(t.Name)
-	log.Println(t.Age)
-	log.Println(t.Occupation)
+	log.Println(user.Name)
+	log.Println(user.Age)
+	log.Println(user.Occupation)
 
-	for i, hobby := range t.Hobbies {
+	for i, hobby := range user.Hobbies {
 		log.Println(fmt.Sprintf("Hobby #%d", i+1))
 		log.Println(fmt.Sprintf("%s for %d years", hobby.Name, hobby.Years))
 	}

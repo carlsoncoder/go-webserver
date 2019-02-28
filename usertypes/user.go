@@ -1,7 +1,7 @@
 package usertypes
 
 import (
-	generictypes "github.com/carlsoncoder/webserver/generictypes"
+	generictypes "github.com/carlsoncoder/go-webserver/generictypes"
 )
 
 type User struct {

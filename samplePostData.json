@@ -1,0 +1,19 @@
+{
+  "name": "justin",
+  "age": 34,
+  "occupation": "Software Architect",
+  "hobbies": [
+     {
+        "name": "Guitar",
+        "years": 14
+     },
+     {
+        "name": "Development",
+        "years":  10
+     },
+     {
+        "name": "Video Games",
+        "years": 28
+     }
+   ]
+}
