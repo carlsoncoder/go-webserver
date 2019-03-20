@@ -17,20 +17,25 @@ func test(rw http.ResponseWriter, req *http.Request) {
 	}
 
 	log.Println(string(body))
-	var user usertypes.User
+	var userList usertypes.UserList
 
-	err = json.Unmarshal(body, &user)
+	err = json.Unmarshal(body, &userList)
 	if err != nil {
 		panic(err)
 	}
 
-	log.Println(user.Name)
-	log.Println(user.Age)
-	log.Println(user.Occupation)
+	log.Println(len(userList.Users))
 
-	for i, hobby := range user.Hobbies {
-		log.Println(fmt.Sprintf("Hobby #%d", i+1))
-		log.Println(fmt.Sprintf("%s for %d years", hobby.Name, hobby.Years))
+	for i, user := range userList.Users {
+		log.Println(fmt.Sprintf("User #%d", i+1))
+		log.Println(user.Name)
+		log.Println(user.Age)
+		log.Println(user.Occupation)
+
+		for i, hobby := range user.Hobbies {
+			log.Println(fmt.Sprintf("Hobby #%d", i+1))
+			log.Println(fmt.Sprintf("%s for %d years", hobby.Name, hobby.Years))
+		}
 	}
 }
 
